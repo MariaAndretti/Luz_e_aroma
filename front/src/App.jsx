@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
-
 import api from "./services/api";
-
 import Produtos from "./components/produtos";
 import Reservas from "./components/reserva";
 
 export default function App() {
+  const [logado, setLogado] = useState(false);
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+
   const [activeTab, setActiveTab] = useState("produtos");
   const [produtos, setProdutos] = useState([]);
   const [reservas, setReservas] = useState([]);
 
+  const [produtoSelecionado, setProdutoSelecionado] = useState(null);
+
   useEffect(() => {
-    carregarDados();
-  }, []);
+    if (logado) {
+      carregarDados();
+    }
+  }, [logado]);
 
   async function carregarDados() {
     try {
@@ -26,17 +32,71 @@ export default function App() {
     }
   }
 
+  function entrar(e) {
+    e.preventDefault();
+
+    if (!email || !senha) {
+      alert("Preencha o e-mail e a senha");
+      return;
+    }
+
+    setLogado(true);
+  }
+
+  function reservar(produto) {
+    setProdutoSelecionado(produto);
+    setActiveTab("reservas");
+  }
+
+  if (!logado) {
+    return (
+      <div className="login-container">
+        <div className="login-box">
+          <h1>Luz & Aroma</h1>
+          <p>Sistema de Controle</p>
+
+          <form onSubmit={entrar}>
+            <div className="form-group">
+              <label>E-mail</label>
+
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="form-input"
+                placeholder="Digite seu e-mail"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Senha</label>
+
+              <input
+                type="password"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                className="form-input"
+                placeholder="Digite sua senha"
+              />
+            </div>
+
+            <button type="submit" className="btn btn-primary">
+              Entrar
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="app-container">
-
       <div className="sidebar">
-
         <div className="sidebar-title">
           Luz & Aroma
         </div>
 
         <nav className="sidebar-nav">
-
           <button
             onClick={() => setActiveTab("produtos")}
             className={`nav-button ${
@@ -54,15 +114,11 @@ export default function App() {
           >
             Reservas
           </button>
-
         </nav>
-
       </div>
 
       <div className="main-content">
-
         <header className="header">
-
           <h2 className="header-title">
             {activeTab === "produtos"
               ? "Mostruário de Produtos"
@@ -72,15 +128,13 @@ export default function App() {
           <div className="user-info">
             Luz & Aroma
           </div>
-
         </header>
 
         <main className="content-body">
-
           {activeTab === "produtos" && (
             <Produtos
               produtos={produtos}
-              setProdutos={setProdutos}
+              onReservar={reservar}
             />
           )}
 
@@ -89,13 +143,11 @@ export default function App() {
               produtos={produtos}
               reservas={reservas}
               setReservas={setReservas}
+              produtoSelecionado={produtoSelecionado}
             />
           )}
-
         </main>
-
       </div>
-
     </div>
   );
 }

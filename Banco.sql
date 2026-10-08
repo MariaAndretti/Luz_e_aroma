@@ -15,7 +15,7 @@ CREATE TABLE reservas (
 );
 
 
-SHOW tables;
+SHOW tables; 
 
 DESCRIBE produtos;
 
@@ -23,12 +23,15 @@ DELETE FROM produtos;
 
 SELECT * FROM produtos;
 
-DELETE FROM produtos
-WHERE id_produto = 2;
-
 UPDATE produtos
-SET nome = 'Vela Aromática - Perséfone'
-WHERE id_produto = 12;
+SET nome = 'Vela Aromática - Roses'
+WHERE id_produto = 13;
+
+DELETE FROM reservas
+WHERE id_produto = 15;
+
+DELETE FROM produtos
+WHERE id_produto = 15;
 
 USE luz_aroma;
 
@@ -52,6 +55,8 @@ INSERT INTO produtos (nome, preco, quantidade, fragrancia) VALUES
 ('Vela Aromática - LiLis', 59.90, 14, 'Lírios'),
 ('Vela Aromática Roses', 64.90, 11, 'Rosas'),
 ('Vela Aromática - Gardenia', 69.90, 13, 'Gardênia');
+
+
 
 INSERT INTO produtos (nome, preco, quantidade, fragrancia)
 VALUES ('Vela Personalizável', 149.90, 20, 'Personalizada');

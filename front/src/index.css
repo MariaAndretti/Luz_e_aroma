@@ -1,125 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f6f4;
+    color: #555;
+}
+
+/* LOGIN */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f6f4;
+}
+
+.login-box {
+    width: 380px;
+    padding: 45px;
+    background: white;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.login-box h1 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    color: #999;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    color: #666;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #999;
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+    padding: 12px 20px;
+}
+
+.btn-primary {
+    width: 100%;
+    background: #555;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #333;
+}
+
+
+/* ESTRUTURA PRINCIPAL */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* MENU LATERAL */
+
+.sidebar {
+    width: 230px;
+    min-height: 100vh;
+    background: #555;
+    color: white;
+    padding: 25px 15px;
+}
+
+.sidebar-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    background: transparent;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-button:hover,
+.nav-button.active {
+    background: #777;
+}
+
+
+/* ÁREA PRINCIPAL */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.header {
+    height: 70px;
+    background: white;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.header-title {
+    font-size: 22px;
+    font-weight: 400;
+    color: #555;
+}
+
+.user-info {
+    color: #888;
+    font-size: 14px;
+}
+
+.content-body {
+    padding: 30px;
+}
+
+
+/* CATÁLOGO */
+
 .catalogo {
-  width: 100%;
+    width: 100%;
 }
 
 .catalogo-topo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-  color: #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
 }
 
 .catalogo-topo h2 {
-  font-size: 24px;
-  font-weight: 400;
+    font-size: 24px;
+    font-weight: 400;
+    color: #555;
 }
 
 .catalogo-topo span {
-  color: #999;
-  font-size: 14px;
+    color: #999;
+    font-size: 14px;
 }
 
 .produtos-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 .produto-card {
-  background-color: #fff;
-  border: 1px solid #eee;
-  text-align: center;
-  transition: 0.2s;
+    background: white;
+    border: 1px solid #eee;
+    transition: 0.2s;
 }
 
 .produto-card:hover {
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+
+/* ESPAÇO DA FOTO */
 
 .produto-imagem {
-  height: 280px;
-  background-color: #f8eeee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.vela {
-  font-size: 110px;
-}
-
-.produto-info {
-  padding: 18px 12px;
-}
-
-.produto-info h3 {
-  color: #333;
-  font-size: 16px;
-  font-weight: 400;
-  min-height: 40px;
-}
-
-.fragrancia {
-  color: #888;
-  font-size: 14px;
-  margin: 8px 0;
-}
-
-.avaliacao {
-  color: #ccc;
-  font-size: 18px;
-  margin: 8px 0;
-}
-
-.preco {
-  color: #777;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 12px;
-}
-
-.quantidade {
-  color: #999;
-  font-size: 12px;
-  margin: 5px 0 15px;
-}
-
-.btn-reservar {
-  width: 100%;
-  padding: 11px;
-  border: none;
-  background-color: #555;
-  color: white;
-  cursor: pointer;
-  font-size: 13px;
-  letter-spacing: 1px;
-}
-
-.btn-reservar:hover {
-  background-color: #333;
-}
-
-@media (max-width: 1000px) {
-  .produtos-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 750px) {
-  .produtos-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
-  .produtos-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.produto-imagem {
-    height: 280px;
-    background-color: #f8eeee;
+    height: 250px;
+    background: #f2e8e5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,4 +218,201 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* Enquanto não tiver fotos */
+
+.produto-imagem::before {
+    content: "🕯️";
+    font-size: 70px;
+}
+
+
+/* INFORMAÇÕES DO PRODUTO */
+
+.produto-info {
+    padding: 18px;
+    text-align: center;
+}
+
+.produto-info h3 {
+    color: #444;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    min-height: 45px;
+}
+
+.fragrancia {
+    color: #999;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.preco {
+    color: #555;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.quantidade {
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.btn-reservar {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #555;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.btn-reservar:hover {
+    background: #333;
+}
+
+
+/* FORMULÁRIO DE RESERVA */
+
+.form-container {
+    background: white;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.btn-container {
+    margin-top: 10px;
+}
+
+.btn-container .btn-primary {
+    width: auto;
+}
+
+
+/* TABELA DE RESERVAS */
+
+.table-container {
+    background: white;
+    border: 1px solid #eee;
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table th {
+    background: #f5f2f0;
+    color: #666;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 15px;
+    text-align: left;
+}
+
+.custom-table td {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+}
+
+.text-semibold {
+    font-weight: 600;
+}
+
+.text-muted {
+    color: #999;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.btn-table-delete {
+    border: none;
+    background: #b22222;
+    color: white;
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+.btn-table-delete:hover {
+    background: #8b1a1a;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 1100px) {
+    .produtos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    .produtos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+    .app-container {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .sidebar-title {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+    }
+
+    .nav-button {
+        text-align: center;
+    }
+
+    .header {
+        padding: 0 15px;
+    }
+
+    .content-body {
+        padding: 15px;
+    }
+
+    .produtos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .login-box {
+        width: 90%;
+        padding: 30px;
+    }
 }

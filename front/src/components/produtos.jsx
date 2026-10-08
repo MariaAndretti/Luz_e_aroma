@@ -19,18 +19,28 @@ export default function Produtos({ produtos, onReservar }) {
                     >
 
                         <div className="produto-imagem">
-                            <img
-                                src={`/imagens/${produto.imagem}`}
-                                alt={produto.nome}
-                            />
+
+                            {produto.imagem ? (
+                                <img
+                                    src={`/imagens/${produto.imagem}`}
+                                    alt={produto.nome}
+                                />
+                            ) : (
+                                <div className="vela">
+                                    🕯️
+                                </div>
+                            )}
+
                         </div>
 
                         <div className="produto-info">
 
-                            <h3>{produto.nome}</h3>
+                            <h3>
+                                {produto.nome}
+                            </h3>
 
                             <p className="fragrancia">
-                                {produto.fragrancia}
+                                Fragrância: {produto.fragrancia}
                             </p>
 
                             <p className="preco">

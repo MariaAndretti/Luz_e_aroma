@@ -15,7 +15,7 @@ CREATE TABLE reservas (
 );
 
 
-SHOW tables; 
+SHOW tables;
 
 DESCRIBE produtos;
 
@@ -24,8 +24,8 @@ DELETE FROM produtos;
 SELECT * FROM produtos;
 
 UPDATE produtos
-SET nome = 'Vela Aromática - Roses'
-WHERE id_produto = 13;
+SET nome = 'Vela Aromática - Lemon'
+WHERE id_produto = 12;
 
 DELETE FROM reservas
 WHERE id_produto = 15;
@@ -61,8 +61,45 @@ INSERT INTO produtos (nome, preco, quantidade, fragrancia) VALUES
 INSERT INTO produtos (nome, preco, quantidade, fragrancia)
 VALUES ('Vela Personalizável', 149.90, 20, 'Personalizada');
 
+SELECT id_produto, nome, imagem
+FROM produtos;
+
+USE luz_aroma;
+
+ALTER TABLE reservas
+ADD COLUMN valor_total DECIMAL(10,2) NOT NULL DEFAULT 0.00;
+
+DESCRIBE reservas;
+
+USE luz_aroma;
+
+
+
+SELECT id_produto, nome, imagem
+FROM produtos;
+
+UPDATE produtos
+SET imagem = 'vela2.jpg'
+WHERE id_produto = 5;
+
+UPDATE produtos
+SET fragrancia = 'Cereja e Avelã'
+WHERE id_produto = 13;
+
 UPDATE produtos SET imagem = 'vela1.jpg' WHERE id_produto = 3;
 UPDATE produtos SET imagem = 'vela2.jpg' WHERE id_produto = 4;
+UPDATE produtos SET imagem = 'vela3.jpg' WHERE id_produto = 5;
+UPDATE produtos SET imagem = 'vela4.jpg' WHERE id_produto = 6;
+UPDATE produtos SET imagem = 'vela5.jpg' WHERE id_produto = 7;
+UPDATE produtos SET imagem = 'vela6.jpg' WHERE id_produto = 8;
+UPDATE produtos SET imagem = 'vela7.jpg' WHERE id_produto = 9;
+UPDATE produtos SET imagem = 'vela8.jpg' WHERE id_produto = 10;
+UPDATE produtos SET imagem = 'vela9.jpg' WHERE id_produto = 11;
+UPDATE produtos SET imagem = 'vela10.jpg' WHERE id_produto = 12;
+UPDATE produtos SET imagem = 'vela11.jpg' WHERE id_produto = 13;
+UPDATE produtos SET imagem = 'vela12.jpg' WHERE id_produto = 14;
+
+SELECT id_produto, nome, imagem FROM produtos;
 
 SELECT id_produto, nome, imagem
 FROM produtos;

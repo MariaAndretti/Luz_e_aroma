@@ -4,10 +4,8 @@ const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
     class Produtos extends Model {
-
         static associate(models) {
         }
-
     }
 
     Produtos.init({
@@ -17,9 +15,10 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         nome: DataTypes.STRING,
-        preco: DataTypes.STRING,
+        preco: DataTypes.DECIMAL(10, 2),
         quantidade: DataTypes.INTEGER,
-        fragrancia: DataTypes.STRING
+        fragrancia: DataTypes.STRING,
+        imagem: DataTypes.STRING
     }, {
         sequelize,
         modelName: 'Produtos',
